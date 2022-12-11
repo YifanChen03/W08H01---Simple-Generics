@@ -17,9 +17,9 @@ public final class SimpleGenerics {
 	 */
 	public static String toString(Collection<?> collection) {
 		// TODO
-		String output = Arrays.asList(collection.toArray()).get(0).toString();
+		String output = String.valueOf(Arrays.asList(collection.toArray()).get(0));
 		for (int i = 1; i < collection.size(); i++) {
-			output = output + ", " + Arrays.asList(collection.toArray()).get(i);
+			output = output + ", " + String.valueOf(Arrays.asList(collection.toArray()).get(i));
 		}
 		output = "{" + output + "}";
 		return output;
