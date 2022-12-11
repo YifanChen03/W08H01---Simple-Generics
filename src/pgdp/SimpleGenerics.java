@@ -1,10 +1,7 @@
 package pgdp;
 
 import java.lang.reflect.Array;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public final class SimpleGenerics {
 
@@ -20,7 +17,12 @@ public final class SimpleGenerics {
 	 */
 	public static String toString(Collection<?> collection) {
 		// TODO
-		return null;
+		String output = Arrays.asList(collection.toArray()).get(0).toString();
+		for (int i = 1; i < collection.size(); i++) {
+			output = output + ", " + Arrays.asList(collection.toArray()).get(i).toString();
+		}
+		output = "{" + output + "}";
+		return output;
 	}
 
 	/**
