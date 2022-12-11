@@ -16,11 +16,8 @@ public final class SimpleGenerics {
 	 * @return String representation of the collection
 	 */
 	public static String toString(Collection<?> collection) {
-		// TODO
-		String output = String.valueOf(Arrays.asList(collection.toArray()).get(0));
-		for (int i = 1; i < collection.size(); i++) {
-			output = output + ", " + String.valueOf(Arrays.asList(collection.toArray()).get(i));
-		}
+		String output = String.valueOf(Arrays.asList(collection.toArray()));
+		output = output.substring(1, output.length() - 1);
 		output = "{" + output + "}";
 		return output;
 	}
@@ -91,5 +88,7 @@ public final class SimpleGenerics {
 	}
 
 	public static void main(String... args) {
+		List<?> list = Arrays.asList("Lars", "Simon", 3);
+		System.out.println(toString(list));
 	}
 }
