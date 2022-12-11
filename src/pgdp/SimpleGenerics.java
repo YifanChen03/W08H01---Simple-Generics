@@ -62,8 +62,15 @@ public final class SimpleGenerics {
 	 * @return array of type T
 	 */
 	public static <T> T[] specialSort(Class<T> clazz, Collection<T> collection, Comparator<T> comparator) {
-		// TODO
+		//array mit passender Länge erstellen
 		T[] t_array = generateGenericArray(clazz, collection.size());
+		//speichere Collection in array
+		int round = 0;
+		for (T i : collection) {
+			t_array[round] = i;
+			round++;
+		}
+		//sortiere array mit comparator
 		Arrays.sort(t_array, comparator);
 		return t_array;
 	}
@@ -95,6 +102,7 @@ public final class SimpleGenerics {
 	}
 
 	public static void main(String... args) {
-		List<Integer> list = Arrays.asList(1, 2, 3, 5);
+		/*List<Integer> list = Arrays.asList(1, 2, 3, 5);
+		specialSort(new Class<>(), list, new Comparator<>());*/
 	}
 }
