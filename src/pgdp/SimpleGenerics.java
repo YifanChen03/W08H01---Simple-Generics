@@ -17,10 +17,7 @@ public final class SimpleGenerics {
 	 */
 	public static String toString(Collection<?> collection) {
 		// TODO
-		String output = Arrays.asList(collection.toArray()).get(0).toString();
-		for (int i = 1; i < collection.size(); i++) {
-			output = output + ", " + Arrays.asList(collection.toArray()).get(i).toString();
-		}
+		String output = String.valueOf(collection.toArray());
 		output = "{" + output + "}";
 		return output;
 	}
@@ -91,6 +88,5 @@ public final class SimpleGenerics {
 	}
 
 	public static void main(String... args) {
-
 	}
 }
