@@ -29,8 +29,13 @@ public final class SimpleGenerics {
 	 * @return int array
 	 */
 	public static int[] toIntArray(Collection<Integer> collection) {
-		// TODO
-		return null;
+		int[] int_array = new int[collection.size()];
+		int round = 0;
+		for (int i : collection) {
+			int_array[round] = i;
+			round++;
+		}
+		return int_array;
 	}
 
 	/**
@@ -88,7 +93,7 @@ public final class SimpleGenerics {
 	}
 
 	public static void main(String... args) {
-		List<?> list = Arrays.asList("Lars", "Simon", 3);
-		System.out.println(toString(list));
+		List<Integer> list = Arrays.asList(1, 2, 3, 5);
+		System.out.println(Arrays.toString(toIntArray(list)));
 	}
 }
