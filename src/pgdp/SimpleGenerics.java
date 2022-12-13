@@ -86,14 +86,15 @@ public final class SimpleGenerics {
 	public static <T> Collection<T> intersection(Collection<T>[] collections) {
 		// TODO
 		//erstelle collections mit allen elementen einmal
-		Collection<T> t_collection = Arrays.asList();
-		for (int i = 0; i < collections.length; i++) {
+		Collection<T> t_collection = collections[0];//Arrays.asList();
+		/*for (int i = 0; i < collections.length; i++) {
 			for (T t : collections[i]) {
 				if (!t_collection.contains(t)) {
 					t_collection.add(t);
 				}
 			}
-		}
+			t_collection.addAll(collections[i]);
+		}*/
 		//behalte nur elemente die enthalten sind in jeder collection
 		for (int i = 0; i < collections.length; i++) {
 			t_collection.retainAll(collections[i]);
@@ -118,5 +119,20 @@ public final class SimpleGenerics {
 	public static void main(String... args) {
 		/*List<Integer> list = Arrays.asList(1, 2, 3, 5);
 		specialSort(new Class<>(), list, new Comparator<>());*/
+		Collection<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(2);
+		list.add(4);
+		Collection<Integer> list1 = new ArrayList<>();
+		list1.add(1);
+		list1.add(2);
+		list1.add(4);
+		Collection<Integer> list3 = new ArrayList<>();
+		list3.add(1);
+		list3.add(2);
+		list3.add(4);
+		Collection<ArrayList>[] listArray = new Collection[]{list1, list, list3};
+		System.out.println(Arrays.toString(SimpleGenerics.intersection(listArray).toArray()));
 	}
 }
