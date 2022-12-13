@@ -84,7 +84,6 @@ public final class SimpleGenerics {
 	 * @return intersection of all collections
 	 */
 	public static <T> Collection<T> intersection(Collection<T>[] collections) {
-		// TODO
 		//erstelle collections mit allen elementen einmal
 		Collection<T> t_collection = new ArrayList<>();//collections[0];
 		for (int i = 0; i < collections.length; i++) {
@@ -112,28 +111,17 @@ public final class SimpleGenerics {
 	 * @return set of values
 	 */
 	public static <K, V> Set<V> getValues(Map<K, V> map) {
-		// TODO
-		return null;
+		//finde alle Schlüssel
+		Set<K> kset = map.keySet();
+		Set<V> output = new HashSet<>();
+		//füge von jedem Schlüssel zugehörige Value in output
+		for (K k : kset) {
+			output.add(map.get(k));
+		}
+		return output;
 	}
 
 	public static void main(String... args) {
-		/*List<Integer> list = Arrays.asList(1, 2, 3, 5);
-		specialSort(new Class<>(), list, new Comparator<>());*/
-		Collection<Integer> list = new ArrayList<>();
-		list.add(1);
-		list.add(2);
-		list.add(2);
-		list.add(4);
-		Collection<Integer> list1 = new ArrayList<>();
-		list1.add(1);
-		list1.add(2);
-		list1.add(4);
-		list1.add(6);
-		Collection<Integer> list3 = new ArrayList<>();
-		list3.add(1);
-		list3.add(2);
-		list3.add(4);
-		Collection<ArrayList>[] listArray = new Collection[]{list, list1, list3};
-		System.out.println(Arrays.toString(SimpleGenerics.intersection(listArray).toArray()));
+
 	}
 }
