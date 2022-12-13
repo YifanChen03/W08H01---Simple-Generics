@@ -85,7 +85,21 @@ public final class SimpleGenerics {
 	 */
 	public static <T> Collection<T> intersection(Collection<T>[] collections) {
 		// TODO
-		return null;
+		//erstelle collections mit allen elementen einmal
+		Collection<T> t_collection = Arrays.asList();
+		for (int i = 0; i < collections.length; i++) {
+			for (T t : collections[i]) {
+				if (!t_collection.contains(t)) {
+					t_collection.add(t);
+				}
+			}
+		}
+		//behalte nur elemente die enthalten sind in jeder collection
+		for (int i = 0; i < collections.length; i++) {
+			t_collection.retainAll(collections[i]);
+		}
+
+		return t_collection;
 	}
 
 	/**
